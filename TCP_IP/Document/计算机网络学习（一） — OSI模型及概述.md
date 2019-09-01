@@ -8,7 +8,7 @@
 
 为了解决不同厂商生产的异构机型无法使用不同的协议互相通信的问题，ISO（International Organization for Standards，国际标准化组织）制定了OSI（Open System Interconnection，开放式通信系统参考模型）。在这一模型将通信协议中的必要功能分为七层，每个分层都接收由它下一层所提供的的特定的服务，并且负责为自己的上一层提供特定的服务。上下层之间进行交互时所遵循的约定叫做`接口`。同一层之间交互所遵循的约定叫做`协议`。
 
-![分层模型](https://github.com/jonewan/markdown/blob/master/TCP_IP/%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B.png?raw=true)
+![分层模型](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B.png?raw=true)
 
 OSI七层模型从上至下分为：
 
@@ -20,7 +20,7 @@ OSI七层模型从上至下分为：
 * 数据链路层：负责物理层面上的互联的、节点之间的传输。将比特序列划分为有意义的数据帧，进行数据帧的生成与接收。
 * 物理层：负责比特流与电压高低、光的闪灭之间的互换。
 
-![OSI七层模型](https://github.com/jonewan/markdown/blob/master/TCP_IP/OSI%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B.png?raw=true)
+![OSI七层模型](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/OSI%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B.png?raw=true)
 
 每个分层上，在处理由上一层传过来的数据时需附加上当前分层的协议必须的`首部信息`，然后接收端对收到的数据进行`首部`与`数据`的分离，再转发给上一层，最终将发送端的数据恢复原样。
 
@@ -44,13 +44,13 @@ OSI七层模型从上至下分为：
 
 在发送数据之前，需要在收发的主机之间连接一条通信线路，连接被关闭时无法发送数据。
 
-![面向有连接型](https://github.com/jonewan/markdown/blob/master/TCP_IP/%E9%9D%A2%E5%90%91%E6%9C%89%E8%BF%9E%E6%8E%A5%E5%9E%8B%E4%BC%A0%E8%BE%93.png?raw=true)
+![面向有连接型](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/%E9%9D%A2%E5%90%91%E6%9C%89%E8%BF%9E%E6%8E%A5%E5%9E%8B%E4%BC%A0%E8%BE%93.png?raw=true)
 
 ### 3.2 面向无连接型
 
 无需确认对方是否存在，即不要求简历和断开连接，发送端可随时自由地发送数据。相对应的，接收端也永远不知道自己会什么时候从哪里接收到数据，因此在面向无连接的情况下，接收端需要时常确认是否收到了数据。
 
-![面向无连接型](https://github.com/jonewan/markdown/blob/master/TCP_IP/%E9%9D%A2%E5%90%91%E6%97%A0%E8%BF%9E%E6%8E%A5%E5%9E%8B%E4%BC%A0%E8%BE%93.png?raw=true)
+![面向无连接型](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/%E9%9D%A2%E5%90%91%E6%97%A0%E8%BF%9E%E6%8E%A5%E5%9E%8B%E4%BC%A0%E8%BE%93.png?raw=true)
 
 ## 四、电路交换与分组交换
 
@@ -58,7 +58,7 @@ OSI七层模型从上至下分为：
 
 在电路交换中，交换机主要负责中转处理，计算机连接在交换机上，而交换机与交换机之间继续连接，计算机在发送数据时需要通过交换机与目标主机建立通信电路，建立好连接后用户可以一直使用该条电路，直到该连接被断开。
 
-![电路交换](https://github.com/jonewan/markdown/blob/master/TCP_IP/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2.png?raw=true)
+![电路交换](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2.png?raw=true)
 
 这就导致了一个问题，当一台计算机在收发信息时会独占整个电路，其他计算机智能干等着，因此无法实现多用户的同时通信，故出现了分组交换。
 
@@ -66,11 +66,11 @@ OSI七层模型从上至下分为：
 
 在分组交换中，由分组交换机（路由器）连接通信线路，其大致处理过程是：发送端计算机将数据分组发送给路由器，路由器接收到分组数据后缓存到自己的缓冲区，然后再转发给目标计算机。
 
-![分组交换](https://github.com/jonewan/markdown/blob/master/TCP_IP/%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2.png?raw=true)
+![分组交换](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2.png?raw=true)
 
 网络传输中，每个节点会根据分组数据的地址信息，来判断该报文应该由哪个网卡发送出去。为此，各个地址会参考一个发出接口列表。在这一点上MAC寻址与IP寻址是一样的。只不过MAC寻址中所参考的这张表叫做地址转发表，而IP寻址中所参考的叫做路由控制表。MAC地址转发表中所记录的是实际的MAC地址本身，而路由表中记录的IP地址则是集中了之后的网络号（确切的说，是网络号与子网掩码）。
 
-![根据地址转发表与路由表定位报文发送的目标设备](https://github.com/jonewan/markdown/blob/master/TCP_IP/%E6%A0%B9%E6%8D%AE%E5%9C%B0%E5%9D%80%E8%BD%AC%E5%8F%91%E8%A1%A8%E4%B8%8E%E8%B7%AF%E7%94%B1%E8%A1%A8%E5%AE%9A%E4%BD%8D%E6%8A%A5%E6%96%87%E5%8F%91%E9%80%81%E7%9A%84%E7%9B%AE%E6%A0%87%E8%AE%BE%E5%A4%87.png?raw=true)
+![根据地址转发表与路由表定位报文发送的目标设备](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/%E6%A0%B9%E6%8D%AE%E5%9C%B0%E5%9D%80%E8%BD%AC%E5%8F%91%E8%A1%A8%E4%B8%8E%E8%B7%AF%E7%94%B1%E8%A1%A8%E5%AE%9A%E4%BD%8D%E6%8A%A5%E6%96%87%E5%8F%91%E9%80%81%E7%9A%84%E7%9B%AE%E6%A0%87%E8%AE%BE%E5%A4%87.png?raw=true)
 
 ## 四、网络的构成要素
 
@@ -112,7 +112,7 @@ ISDN  |   双绞线、光纤    |   64kbps \~ 1.5Mbps    |   WAN
 
 有些中继器可以提供多端口服务，被称作`中继集线器`或`集线器`。
 
-![中继](https://github.com/jonewan/markdown/blob/master/TCP_IP/%E4%B8%AD%E7%BB%A7.png?raw=true)
+![中继](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/%E4%B8%AD%E7%BB%A7.png?raw=true)
 
 ### 4.4 网桥/2层交换机
 
@@ -122,13 +122,13 @@ ISDN  |   双绞线、光纤    |   64kbps \~ 1.5Mbps    |   WAN
 
 这里所说的地址是指MAC地址、硬件地址、物理地址以及适配器地址，也就是网络上针对网卡（NIC）分配的地址。由于是OSI模型第二层的功能，故网桥也称为2层交换机（L2交换机）。
 
-![网桥](https://github.com/jonewan/markdown/blob/master/TCP_IP/%E7%BD%91%E6%A1%A5_2%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA.png?raw=true)
+![网桥](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/%E7%BD%91%E6%A1%A5_2%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA.png?raw=true)
 
 ### 4.5 路由器/3层交换机
 
 路由器是在网络层上连接两个网络，并将分组报文转发给另一个目标路由器的设备，其与网桥不同的是，网桥根据MAC地址进行处理，而路由器使用IP地址进行处理。路由器可以连接不同的数据链路，比如以太网和FDDI。由于其在OSI模型第三层，故也称为3层交换机（L3交换机）。
 
-![路由器](https://github.com/jonewan/markdown/blob/master/TCP_IP/%E8%B7%AF%E7%94%B1%E5%99%A8_3%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA.png?raw=true)
+![路由器](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/%E8%B7%AF%E7%94%B1%E5%99%A8_3%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA.png?raw=true)
 
 ### 4.6 4-7层交换机
 
@@ -138,7 +138,7 @@ ISDN  |   双绞线、光纤    |   64kbps \~ 1.5Mbps    |   WAN
 
 网关负责协议的转换与数据的转发，也是处理传输层到应用层的数据，与4-7层交换机不同的是，网关不仅转发数据，还会对数据的协议进行翻译和转换，例如互联网邮件与手机邮件协议的转换。在使用万维网（www）时为了控制网络流量以及安全性考虑，有时会使用代理服务器，这种称为`应用网关`。防火墙就是一种通过网关通信，针对不同应用提高安全性的产品。
 
-![网关/4-7层交换机](https://github.com/jonewan/markdown/blob/master/TCP_IP/%E7%BD%91%E5%85%B3_4-7%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA.png?raw=true)
+![网关/4-7层交换机](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/%E7%BD%91%E5%85%B3_4-7%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA.png?raw=true)
 
 ## 五、单播、广播、多播、任播
 

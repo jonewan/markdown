@@ -2,7 +2,7 @@
 
 ## 一、TCP/IP与OSI参考模型
 
-![TCP/IP与OSI参考模型](https://github.com/jonewan/markdown/blob/master/TCP_IP/TCP_IP%E4%B8%8EOSI%E5%8F%82%E8%80%83%E5%AF%B9%E7%85%A7.png?raw=true)
+![TCP/IP与OSI参考模型](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/TCP_IP%E4%B8%8EOSI%E5%8F%82%E8%80%83%E5%AF%B9%E7%85%A7.png?raw=true)
 
 TCP/IP与OSI在分层模块上稍有区别，最主要的区别就是TCP/IP将OSI七层模型中的`会话层`、`表示层`、`应用层`全部整合为`应用层`进行处理。
 
@@ -45,7 +45,7 @@ TCP/IP的分层中，将OSI参考模型中的会话层、表示层和应用层�
 
 在TCP/IP的每个分层中都会对所发送的数据增加一个首部，该首部中包含该层的必要信息，比如发送的目的地址和相关协议等，通常，为协议提供的信息为`包首部`，要发送的内容为`数据`，从下一层看，上一层的收到的包被看作是本层的数据。
 
-![TCP/IP通信过程](https://github.com/jonewan/markdown/blob/master/TCP_IP/TCP_IP%E4%BC%A0%E8%BE%93%E8%BF%87%E7%A8%8B.png?raw=true)
+![TCP/IP通信过程](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/TCP_IP%E4%BC%A0%E8%BE%93%E8%BF%87%E7%A8%8B.png?raw=true)
 
 ### 2.1 发送数据包
 
@@ -69,7 +69,7 @@ IP将TCP传过来的TCP首部和TCP数据合起来当做自己的数据，并在
 
 从IP传过来的IP包，对于`以太网驱动`来说不过就是数据。给这数据附加上以太网首部并进行发送处理。以太网首部中包含接收端MAC地址、发送端MAC地址以及标志以太网类型的以太网数据的协议。根据上述信息产生的以太网数据包将通过物理层传输给接收端。发送处理中的`FCS（Frame Check Sequence）` 由硬件计算，添加到包的最后。设置FCS的目的是为了判断数据包是否由于噪声而被破坏。
 
-![](https://github.com/jonewan/markdown/blob/master/TCP_IP/%E5%88%86%E5%B1%82%E4%B8%AD%E7%9A%84%E5%8C%85%E7%BB%93%E6%9E%84.png?raw=true)
+![](https://github.com/jonewan/markdown/blob/master/TCP_IP/Insert_picture/%E5%88%86%E5%B1%82%E4%B8%AD%E7%9A%84%E5%8C%85%E7%BB%93%E6%9E%84.png?raw=true)
 
 ### 2.2 接收数据包
 
